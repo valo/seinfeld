@@ -28,6 +28,24 @@ get '/' do
   haml :index
 end
 
+get '/join' do
+  cache_for 5.minutes
+  haml :join
+end
+
+post '/do_join' do
+  @user = params[:user]
+  @token = params[:token]
+  begin
+    open("http://github.com/api/v2/json/user/show/#{@user}?login=#{@user}&token=#{@token}")
+    Seinfeld::User.create(:login => @user) unless Seinfeld::User.find(:login => @user)
+    redirect "/~#{@user}"
+  rescue OpenURI::HTTPError
+    @error = "Cannot authenticate the user #{@user}. Please check your credentials."
+    haml :join
+  end
+end
+
 get '/~:name.json' do
   show_user_json
 end
@@ -81,6 +99,10 @@ end
 
 helpers do
   include Seinfeld::CalendarHelper
+  
+  def site_address
+    "http://localhost:4567"
+  end
 
   def page_title
     "%s's Calendar" % @user.login

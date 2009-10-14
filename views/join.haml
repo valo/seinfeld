@@ -1,0 +1,32 @@
+%html
+  %head
+    %title 
+      Join the calendar
+    %link{:rel => 'icon', :type => 'image/png', :href => '/images/x_1.png', :sizes => '48x48'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/styles/main.css'}
+    %script{:type => 'text/javascript', :src => '/javascripts/mootools.js'}
+    %script{:type => 'text/javascript', :src => '/javascripts/application.js'}
+  %body
+    .title 
+      Join
+    #main
+      %p.error
+        = @error
+      %p
+        Join the calendar now! Just fill-in your
+        %a{:href => "http://github.com"} github
+        username and read token and we are going to add you to the calendar. We 
+        won't store your credentials permanently. We are going to use them
+        for verification if you are really the owner of the account.
+      %form{:action => :do_join, :method => :post}
+        %p
+          %label{:for => 'user'} Username: 
+          %input{:type => :text, :name => :user}
+        %p
+          %label{:for => 'token'} Token: 
+          %input{:type => :text, :name => :token}
+        %p
+          %input{:type => :submit, :value => "Join!"}
+      #content.footnote 
+        %a{:href => site_address} Calendar About Nothing
+        by <a href="http://techno-weenie.net">rick</a> and <a href="http://warpspire.com/">kyle</a> / <a href="http://entp.com">ENTP</a>

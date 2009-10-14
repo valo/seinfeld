@@ -1,14 +1,20 @@
 %html
   %head
-    %title Calendar About Nothing: Tracking Open Source Contributions
+    %title Valo's Calendar About Nothing: Tracking Open Source Contributions
     %link{:rel => 'icon', :type => 'image/png', :href => '/images/x_1.png', :sizes => '48x48'}
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/styles/main.css'}
   %body
-    .title Calendar About Nothing
+    .title Valo's Calendar About Nothing
     .subtitle Tracking Open Source Contributions
     #borderedMain
       #content
         %h1 What is this?
+        %p 
+          This is
+          %a{:href => "http://github.com/valo"} valo's
+          fork of calendar about nothing. The initial project was deployed on
+          %a{:href => "http://calendaraboutnothing.com"} http://calendaraboutnothing.com
+          ,but it was abandoned.
         %p
           The Calendar About Nothing generates a 
           "<a href="http://lifehacker.com/software/motivation/jerry-seinfelds-productivity-secret-281626.php">Seinfeld Calendar</a>"
@@ -21,28 +27,17 @@
           for the day.
           Commit tomorrow, and start building up your
           %strong streak.
+        %h2 Get started
         %p
-          %strong Get started
-          by logging into Github and sending a direct message to the
-          %var 
-            %a{:href => 'http://github.com/calendaraboutnothing'} calendaraboutnothing
-          user.
-
-        %h2 Groups!
-        %p 
-          Kyle recently added the ability to view stacked calendars from multiple users.  For instance, here's what the
-          %a{:href => "/group/technoweenie,kneath,courtenay,towski,caged,mattly,foca,rabble,jeremymcanally,gilesbowkett"} ENTP calendar
-          looks like.
+          You can register on the calendar by filling this
+          %a{:href => "join"} form.
 
         %h2 How can I help?
-        %p 
-          We have the ruby source code 
-          %a{:href => "http://github.com/entp/seinfeld/tree/master"} on the githubs.
-          Join in, it's a fun little 
+        %p
+          You can always fork the code from
+          %a{:href => "http://github.com/valo/seinfeld"} here
+          and drop me a message to merge your changes. The whole thing is written using
           %a{:href => "http://www.sinatrarb.com"} Sinatra
-          app!  We also have a 
-          %a{:href => "http://oss.techno-weenie.net/discussions/seinfeld-calendar"} Tender Support forum
-          if you want to throw some ideas around.
 
         %h2 "Neat Idea..."
         %p "... but I want to add my own events!"
@@ -66,5 +61,5 @@
                   = link_to_user user, :longest_streak
     #main
       #content.footnote 
-        %a{:href => "http://calendaraboutnothing.com"} Calendar About Nothing
+        %a{:href => site_address} Calendar About Nothing
         by <a href="http://techno-weenie.net">rick</a> and <a href="http://warpspire.com/">kyle</a> / <a href="http://entp.com">ENTP</a>
